@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Saya</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <h1 class="logo">MyPortfolio</h1>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#biodata">Tentang Saya</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Project</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Halo, Saya <span>Nabila Nur Azizah</span></h1>
+        <p>Web-based application development.</p>
+        <a href="#projects" class="btn">Lihat Project</a>
+      </div>
+      <div class="hero-image"></div>
+    </section>
+
+    <section id="biodata" class="section">
+      <h1 class="title">Tentang Saya</h1>
+
+      <div class="about-container">
+        <div class="about-text">
+          <p>
+            Saya, Nabila Nur Azizah,seorang siswi dari jurusan Rekayasa
+            Perangkat Lunak (RPL). Dunia RPL telah membekali saya dengan
+            landasan berpikir sistematis untuk merancang solusi digital yang
+            efektif.Minat saya yang paling besar adalah pada Pengembangan
+            Aplikasi Berbasis Web (Web-Based Application Development). Saya
+            termotivasi untuk menciptakan aplikasi yang bukan hanya konsep,
+            tetapi solusi nyata yang benar-benar fungsional dan siap pakai.
+          </p>
+        </div>
+
+        <div class="about-photo">
+          <img
+            src="foto/WhatsApp Image 2025-11-23 at 21.48.13 (1).jpeg"
+            alt="Foto Profil"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="title">Skills</h2>
+
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3>HTML</h3>
+          <p>Saya menguasai HTML untuk membangun struktur dasar website.</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--skill-width: 90%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>CSS</h3>
+          <p>
+            Saya menggunakan CSS untuk membuat tampilan website lebih menarik,
+            modern, dan responsif.
+          </p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--skill-width: 85%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>JavaScript</h3>
+          <p>
+            Saya memanfaatkan JavaScript untuk menambahkan interaksi dan logika
+            pada website.
+          </p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--skill-width: 70%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h1 class="title">Daftar Project</h1>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <img
+            src="foto/WhatsApp Image 2025-11-23 at 17.39.28.jpeg"
+            alt="Mengukur Jarak"
+            class="project-img"
+          />
+          <div class="project-info">
+            <h2>Mengukur Jarak</h2>
+            <p>Mengukur jarak menggunakan sensor Ultrasonic.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            src="foto/WhatsApp Image 2025-11-23 at 21.54.59.jpeg"
+            alt="Robotic"
+            class="project-img"
+          />
+          <div class="project-info">
+            <h2>Robotic</h2>
+            <p>
+              Robot mobil Arduino yang otomatis bergerak dan menghindari
+              halangan dengan sensor ultrasonik.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            src="foto/WhatsApp Image 2025-11-23 at 21.54.39.jpeg"
+            alt="Kontrol Lampu Dari HP"
+            class="project-img"
+          />
+          <div class="project-info">
+            <h2>Kontrol Lampu Dari HP</h2>
+            <p>Sistem IoT untuk mengontrol lampu melalui smartphone.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            src="foto/buah.jpg"
+            alt="Game Kelas 11"
+            class="project-img"
+            onclick="showGame()"
+          />
+          <div class="project-info">
+            <h2>Game</h2>
+            <p>Game fruit ninja</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            src="foto/mtk.jpg"
+            alt="Website Portofolio"
+            class="project-img"
+          />
+          <div class="project-info">
+            <h2>Asesmen proyek</h2>          
+           <a href="https://portomath.netlify.app/" target="_blank"
+                >Lihat Proyek di Sini</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="game" class="section">
+      <button id="closeGameBtn" onclick="hideGame()">❌ Keluar</button>
+      <h1 class="title">Game Kelas 11</h1>
+
+      <div id="app" class="game-box"></div>
+    </section>
+
+    <div class="contact-icons">
+      <a href="tel:083899105909" class="icon">
+        <img src="foto/tlp.jpg" alt="Phone" />
+      </a>
+
+      <a href="mailto:azizahnabilanur858@gmail.com" class="icon">
+        <img src="foto/gmail.jpg" alt="Email" />
+      </a>
+
+      <a href="https://instagram.com/nrz.nbl_" target="_blank" class="icon">
+        <img src="foto/instagram.jpg" alt="Instagram" />
+      </a>
+
+      <a
+        href="https://youtube.com/@nabella0921?si=KFCYcJXrii-ko92u"
+        target="_blank"
+        class="icon"
+      >
+        <img src="foto/youtube_logo.jpg" alt="YouTube" />
+      </a>
+
+      <a
+        href="https://maps.app.goo.gl/zyVEahN4bXeKpKuv6"
+        target="_blank"
+        class="icon"
+      >
+        <img src="foto/lokasi.jpg" alt="Maps" />
+      </a>
+    </div>
+
+    <section id="contact" class="section">
+      <h1 class="title">Kontak</h1>
+
+      <form id="contactForm" class="contact-form">
+        <input type="text" id="name" placeholder="Nama" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <textarea id="message" placeholder="Pesan..." required></textarea>
+
+        <button type="submit" class="btn">Kirim</button>
+        <button type="button" id="resetBtn" class="btn btn-outline">
+          Reset Pesan
+        </button>
+      </form>
+
+      <div id="messageList" class="message-list"></div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="game.js"></script>
+    <script>
+      function showGame() {
+        document.querySelector("#game").style.display = "block";
+
+        // KOREKSI 2: Panggil fungsi startFruitNinja() dari game.js
+        if (typeof startFruitNinja === "function") {
+          startFruitNinja();
+        }
+
+        // Scroll ke game, kurangi 80px agar tidak tertutup navbar
+        window.scrollTo(0, document.querySelector("#game").offsetTop - 80);
+      }
+
+      function hideGame() {
+        // KOREKSI 3: Panggil fungsi penghenti game yang sesuai dengan Fruit Ninja (stopGame)
+        if (typeof stopGame === "function") {
+          stopGame();
+        }
+        document.querySelector("#game").style.display = "none";
+        // Kembali ke Project Section
+        window.scrollTo(0, document.querySelector("#projects").offsetTop);
+      }
+    </script>
+  </body>
+</html>
