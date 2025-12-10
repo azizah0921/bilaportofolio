@@ -8,21 +8,21 @@
   </head>
 
   <body>
+    <header id="header">
     <nav>
-        <h1 class="logo">portofolio nabela</h1>
-        
-        <ul class="nav-links"> 
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#biodata">Tentang Saya</a></li>
+        <div class="logo">MyPortfolio</div>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <ul id="nav-menu">
+            <li><a href="#hero" class="active">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Project</a></li>
-            <li><a href="#contact">Kontak</a></li>
+            <li><a href="#projects">Projek</a></li>
+          <li><a href="#contact">Kontak</a></li>
         </ul>
-        
-        <button class="hamburger-menu" aria-label="Toggle navigation">
-          ⋮
-        </button>
-        
+    </nav>
+</header>
     </nav>
 
     <section id="home" class="hero">
