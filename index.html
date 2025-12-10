@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE ahtml>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -9,7 +9,8 @@
 
   <body>
     <nav>
-      <h1 class="logo">MyPortfolio</h1>
+      <h1 class="logo">portofolio nabela</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <ul>
         <li><a href="#home">Beranda</a></li>
         <li><a href="#biodata">Tentang Saya</a></li>
@@ -25,7 +26,8 @@
         <p>Web-based application development.</p>
         <a href="#projects" class="btn">Lihat Project</a>
       </div>
-      <div class="hero-image"></div>
+      <div class="hero-image">
+        </div>
     </section>
 
     <section id="biodata" class="section">
@@ -34,12 +36,11 @@
       <div class="about-container">
         <div class="about-text">
           <p>
-            Saya, Nabila Nur Azizah,seorang siswi dari jurusan Rekayasa
-            Perangkat Lunak (RPL). Dunia RPL telah membekali saya dengan
-            landasan berpikir sistematis untuk merancang solusi digital yang
-            efektif.Minat saya yang paling besar adalah pada Pengembangan
-            Aplikasi Berbasis Web (Web-Based Application Development). Saya
-            termotivasi untuk menciptakan aplikasi yang bukan hanya konsep,
+            Saya, Nabila Nur Azizah, seorang siswi dari jurusan Rekayasa Perangkat Lunak (RPL).
+            Dunia RPL telah membekali saya dengan landasan berpikir sistematis untuk merancang
+            solusi digital yang efektif. Minat saya yang paling besar adalah pada Pengembangan
+            Aplikasi Berbasis Web (Web-Based Application Development).
+            Saya termotivasi untuk menciptakan aplikasi yang bukan hanya konsep, 
             tetapi solusi nyata yang benar-benar fungsional dan siap pakai.
           </p>
         </div>
@@ -93,7 +94,7 @@
       <h1 class="title">Daftar Project</h1>
 
       <div class="project-grid">
-        <div class="project-card">
+        <div class="project-card open-modal" data-project-id="project1">
           <img
             src="foto/WhatsApp Image 2025-11-23 at 17.39.28.jpeg"
             alt="Mengukur Jarak"
@@ -105,7 +106,7 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card open-modal" data-project-id="project2">
           <img
             src="foto/WhatsApp Image 2025-11-23 at 21.54.59.jpeg"
             alt="Robotic"
@@ -120,7 +121,7 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card open-modal" data-project-id="project3">
           <img
             src="foto/WhatsApp Image 2025-11-23 at 21.54.39.jpeg"
             alt="Kontrol Lampu Dari HP"
@@ -131,32 +132,12 @@
             <p>Sistem IoT untuk mengontrol lampu melalui smartphone.</p>
           </div>
         </div>
-
-        <div class="project-card">
-          <img
-            src="foto/buah.jpg"
-            alt="Game Kelas 11"
-            class="project-img"
-            onclick="showGame()"
-          />
+        
+        <div class="project-card" onclick="showGame()">
+          <img src="foto/buah.jpg" alt="Game Kelas 11" />
           <div class="project-info">
             <h2>Game</h2>
             <p>Game fruit ninja</p>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img
-            src="foto/mtk.jpg"
-            alt="Website Portofolio"
-            class="project-img"
-          />
-          <div class="project-info">
-            <h2>Asesmen proyek</h2>          
-           <a href="https://portomath.netlify.app/" target="_blank"
-                >Lihat Proyek di Sini</a
-              >
-            </p>
           </div>
         </div>
       </div>
@@ -166,7 +147,7 @@
       <button id="closeGameBtn" onclick="hideGame()">❌ Keluar</button>
       <h1 class="title">Game Kelas 11</h1>
 
-      <div id="app" class="game-box"></div>
+      <div id="app" class="game-box"></div> 
     </section>
 
     <div class="contact-icons">
@@ -216,29 +197,115 @@
       <div id="messageList" class="message-list"></div>
     </section>
 
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <div id="modal-project-details">
+                </div>
+        </div>
+    </div>
     <script src="script.js"></script>
     <script src="game.js"></script>
+    
     <script>
+      // ======================================
+      // 1. FUNGSI GAME
+      // ======================================
       function showGame() {
         document.querySelector("#game").style.display = "block";
-
-        // KOREKSI 2: Panggil fungsi startFruitNinja() dari game.js
         if (typeof startFruitNinja === "function") {
           startFruitNinja();
         }
-
-        // Scroll ke game, kurangi 80px agar tidak tertutup navbar
         window.scrollTo(0, document.querySelector("#game").offsetTop - 80);
       }
 
       function hideGame() {
-        // KOREKSI 3: Panggil fungsi penghenti game yang sesuai dengan Fruit Ninja (stopGame)
         if (typeof stopGame === "function") {
           stopGame();
         }
         document.querySelector("#game").style.display = "none";
-        // Kembali ke Project Section
         window.scrollTo(0, document.querySelector("#projects").offsetTop);
+      }
+      
+      // ======================================
+      // 2. DATA DAN FUNGSI MODAL PROYEK
+      // ======================================
+      const projectData = {
+          'project1': {
+              title: 'Mengukur Jarak dengan Ultrasonic',
+              description: 'Proyek ini menggunakan sensor HC-SR04 Ultrasonic yang dihubungkan dengan Arduino untuk mengukur jarak objek dan menampilkannya pada Serial Monitor atau LCD.',
+              instructions: [
+                  'Siapkan komponen: Arduino Uno, Sensor Ultrasonic HC-SR04, dan kabel jumper.',
+                  'Hubungkan pin Trig & Echo sensor ke pin digital Arduino.',
+                  'Tulis kode Arduino untuk mengirim pulsa ke pin Trig dan menghitung durasi pantulan (pin Echo).',
+                  'Konversi durasi waktu menjadi jarak (cm) menggunakan rumus kecepatan suara.',
+                  'Upload kode ke Arduino dan uji dengan mengukur berbagai jarak objek.'
+              ],
+              tech: ['Arduino C++', 'Sensor Ultrasonic HC-SR04', 'Elektronika Dasar']
+          },
+          'project2': {
+              title: 'Robotic Car Penghindar Halangan',
+              description: 'Robot mobil yang diprogram agar bergerak maju dan secara otomatis berbelok atau berhenti ketika mendeteksi halangan di depannya menggunakan sensor Ultrasonic.',
+              instructions: [
+                  'Rakit sasis mobil, motor DC, dan driver motor (L298N atau sejenisnya).',
+                  'Pasang sensor Ultrasonic di bagian depan robot.',
+                  'Hubungkan semua komponen ke Arduino.',
+                  'Tulis kode: Robot bergerak maju, jika jarak < 20cm, robot berhenti dan mencari arah kosong, lalu melanjutkan perjalanan.',
+                  'Kalibrasi kecepatan motor dan sensitivitas sensor.'
+              ],
+              tech: ['Arduino C++', 'Motor DC', 'Driver Motor', 'Sensor Ultrasonic', 'Mekatronika']
+          },
+          'project3': {
+              title: 'Kontrol Lampu dari HP (Sistem IoT)',
+              description: 'Sistem Internet of Things (IoT) sederhana yang memungkinkan pengguna mengontrol kondisi lampu (ON/OFF) dari jarak jauh melalui aplikasi di smartphone (misal: Blynk atau web server ESP8266).',
+              instructions: [
+                  'Siapkan komponen: Modul Wi-Fi (ESP8266/ESP32), Relay, dan lampu.',
+                  'Hubungkan modul Wi-Fi ke Relay dan Relay ke lampu.',
+                  'Program modul Wi-Fi untuk terhubung ke jaringan dan membuat server/API (atau integrasi dengan platform IoT).',
+                  'Buat antarmuka di HP (misal: tombol ON/OFF) yang mengirim permintaan ke modul Wi-Fi.',
+                  'Uji coba kontrol lampu melalui koneksi Wi-Fi.'
+              ],
+              tech: ['ESP8266/ESP32', 'Relay', 'IoT Platform (Blynk/Node-RED)', 'Networking']
+          },
+      };
+
+      const modal = document.getElementById("projectModal");
+      const modalDetails = document.getElementById("modal-project-details");
+      const closeBtn = document.getElementsByClassName("close-btn")[0];
+      const projectCards = document.querySelectorAll(".open-modal");
+
+      function openProjectModal(projectId) {
+          const data = projectData[projectId];
+          if (!data) return;
+
+          let contentHTML = `<h2>${data.title}</h2>`;
+          contentHTML += `<h3>Deskripsi Proyek</h3><p>${data.description}</p>`;
+          contentHTML += `<h3>Teknologi yang Digunakan</h3><p>${data.tech.join(' | ')}</p>`;
+          contentHTML += `<h3>Tata Cara Pengerjaan</h3><ul>`;
+          data.instructions.forEach(step => {
+              contentHTML += `<li>${step}</li>`;
+          });
+          contentHTML += `</ul>`;
+
+          modalDetails.innerHTML = contentHTML;
+          modal.style.display = "block";
+      }
+
+      projectCards.forEach(card => {
+          card.addEventListener('click', function() {
+              const projectId = this.getAttribute('data-project-id');
+              openProjectModal(projectId);
+          });
+      });
+
+      closeBtn.onclick = function() {
+          modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
       }
     </script>
   </body>
