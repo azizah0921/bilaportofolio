@@ -9,18 +9,21 @@
 
   <body>
     <nav>
-    <h1 class="logo">portofolio nabela</h1>
-    <ul class="nav-links"> <li><a href="#home">Beranda</a></li>
-        <li><a href="#biodata">Tentang Saya</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Project</a></li>
-        <li><a href="#contact">Kontak</a></li>
-    </ul>
-    <button class="hamburger-menu" aria-label="Toggle navigation">
-        ☰
-    </button>
-</nav>
-    
+        <h1 class="logo">portofolio nabela</h1>
+        
+        <ul class="nav-links"> 
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#biodata">Tentang Saya</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Project</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+        
+        <button class="hamburger-menu" aria-label="Toggle navigation">
+          ⋮
+        </button>
+        
+    </nav>
 
     <section id="home" class="hero">
       <div class="hero-content">
@@ -309,31 +312,6 @@
               modal.style.display = "none";
           }
       }
-      // --- Kode untuk Navbar Responsif ---
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-links li a');
-
-    // 1. Fungsi Toggle Menu
-    function toggleMenu() {
-        navLinks.classList.toggle('active');
-    }
-
-    // Aksi saat tombol hamburger diklik
-    if (hamburger) {
-        hamburger.addEventListener('click', toggleMenu);
-    }
-    
-    // 2. Tutup menu saat link diklik (agar setelah pindah bagian, menu tertutup)
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                 navLinks.classList.remove('active');
-            }
-        });
-    });
-});
     </script>
   </body>
 </html>
