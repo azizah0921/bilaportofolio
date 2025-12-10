@@ -702,91 +702,194 @@ nav a:hover {
     }
 }
 /* === AKHIR STYLE MODAL BARU DITAMBAHKAN DI SINI === */
-/* Gaya Dasar Navbar untuk Desktop */
+/* ================================================= */
+/* 1. GAYA DASAR NAVBAR (DESKTOP - TEMA GELAP) */
+/* ================================================= */
 nav {
-    display: flex; /* Untuk menyejajarkan logo dan menu */
-    justify-content: space-between; /* Untuk memisahkan logo dan menu */
+    display: flex; 
+    justify-content: space-between; 
     align-items: center;
-    padding: 10px 5%; /* Contoh padding */
-    background-color: #333; /* Contoh warna latar belakang */
-    color: white;
+    padding: 10px 5%; 
+    background-color: #000000; /* WARNA BARU: Hitam Penuh */
+    color: #ffffff; /* Teks Putih */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
 }
 
 nav .logo {
     font-size: 1.5rem;
+    color: #ffffff; /* Logo Putih */
 }
 
+/* Di Desktop, menu harus ditampilkan horizontal */
 nav ul {
     list-style: none;
-    display: flex; /* Menu ditampilkan horizontal */
+    display: flex; 
     margin: 0;
     padding: 0;
 }
 
 nav ul li a {
-    color: white;
+    color: #ffffff; /* Link teks Putih */
     text-decoration: none;
     padding: 10px 15px;
     display: block;
+    transition: color 0.3s ease;
 }
 
-/* Sembunyikan tombol hamburger secara default di Desktop */
+nav ul li a:hover {
+     color: #adb5bd; /* Aksen Abu-abu Pucat saat di-hover */
+}
+
+/* Sembunyikan tombol hamburger di Desktop */
 .hamburger-menu {
     display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
 }
+
+
+/* ================================================= */
+/* 2. MEDIA QUERY UNTUK MOBILE (HITAM & UKURAN KECIL) */
+/* ================================================= */
 @media (max-width: 768px) {
-    /* --------------------------------- */
-    /* 1. Tampilkan Tombol Hamburger */
-    /* --------------------------------- */
+    
+    /* Tampilkan Tombol Tiga Titik */
     .hamburger-menu {
-        display: block; /* Tampilkan tombol hamburger di mobile */
-        background: none;
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 1001; /* Pastikan di atas menu */
+        display: block; 
+        color: #ffffff; /* Warna tombol Putih agar terlihat di latar belakang hitam */
+        font-size: 1.8rem; /* Ukuran tetap kecil */
+        z-index: 1001; 
+        line-height: 1; 
+        padding: 0;
     }
 
-    /* --------------------------------- */
-    /* 2. Gaya Menu Navigasi di Mobile */
-    /* --------------------------------- */
+    /* Gaya Menu Navigasi di Mobile (Sidebar) */
     nav .nav-links {
-        /* Posisikan menu secara vertikal dan menutupi layar */
         position: fixed;
         top: 0;
         right: 0;
-        width: 60%; /* Lebar menu yang muncul */
+        width: 70%; 
         height: 100%;
-        background-color: #444; /* Warna latar belakang menu mobile */
-        flex-direction: column; /* Ubah tata letak item menjadi vertikal */
-        padding-top: 60px; /* Jarak dari atas */
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        background-color: #1a1a1a; /* Latar Belakang menu sedikit lebih terang dari navbar utama */
+        flex-direction: column; 
+        padding-top: 80px; 
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.7);
         
-        /* Awalnya sembunyikan menu */
         transform: translateX(100%); 
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
     }
 
-    /* --------------------------------- */
-    /* 3. Gaya Setiap Item Menu */
-    /* --------------------------------- */
+    /* Gaya Setiap Item Menu */
     nav .nav-links li {
-        text-align: center;
-        margin: 20px 0;
+        text-align: left;
+        margin: 0;
+        border-bottom: 1px solid #333333; /* Garis pemisah abu-abu gelap */
     }
 
     nav .nav-links li a {
-        padding: 15px;
-        border-bottom: 1px solid #555;
+        padding: 15px 20px;
+        color: #ffffff; /* Teks putih di sidebar gelap */
+    }
+    
+    /* Kelas untuk Menampilkan Menu (diaktifkan oleh JS) */
+    nav .nav-links.active {
+        transform: translateX(0); 
+    }
+}* ================================================= */
+/* 1. GAYA DASAR NAVBAR (DESKTOP - TEMA GELAP) */
+/* ================================================= */
+nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 5%; 
+    background-color: #000000; /* WARNA BARU: Hitam Penuh */
+    color: #ffffff; /* Teks Putih */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    color: #ffffff; /* Logo Putih */
+}
+
+/* Di Desktop, menu harus ditampilkan horizontal */
+nav ul {
+    list-style: none;
+    display: flex; 
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #ffffff; /* Link teks Putih */
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+     color: #adb5bd; /* Aksen Abu-abu Pucat saat di-hover */
+}
+
+/* Sembunyikan tombol hamburger di Desktop */
+.hamburger-menu {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* ================================================= */
+/* 2. MEDIA QUERY UNTUK MOBILE (HITAM & UKURAN KECIL) */
+/* ================================================= */
+@media (max-width: 768px) {
+    
+    /* Tampilkan Tombol Tiga Titik */
+    .hamburger-menu {
+        display: block; 
+        color: #ffffff; /* Warna tombol Putih agar terlihat di latar belakang hitam */
+        font-size: 1.8rem; /* Ukuran tetap kecil */
+        z-index: 1001; 
+        line-height: 1; 
+        padding: 0;
     }
 
-    /* --------------------------------- */
-    /* 4. Kelas untuk Menampilkan Menu */
-    /* --------------------------------- */
-    /* Class ini akan ditambahkan/dihapus oleh JavaScript */
+    /* Gaya Menu Navigasi di Mobile (Sidebar) */
+    nav .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%; 
+        height: 100%;
+        background-color: #1a1a1a; /* Latar Belakang menu sedikit lebih terang dari navbar utama */
+        flex-direction: column; 
+        padding-top: 80px; 
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.7);
+        
+        transform: translateX(100%); 
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    /* Gaya Setiap Item Menu */
+    nav .nav-links li {
+        text-align: left;
+        margin: 0;
+        border-bottom: 1px solid #333333; /* Garis pemisah abu-abu gelap */
+    }
+
+    nav .nav-links li a {
+        padding: 15px 20px;
+        color: #ffffff; /* Teks putih di sidebar gelap */
+    }
+    
+    /* Kelas untuk Menampilkan Menu (diaktifkan oleh JS) */
     nav .nav-links.active {
-        transform: translateX(0); /* Tampilkan menu */
+        transform: translateX(0); 
     }
 }
