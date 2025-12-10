@@ -748,151 +748,66 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+/* NAVBAR + FIX HP */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    padding: 15px 10%;
+    z-index: 10;
+    transition: .3s;
+}
 
-/* ================================================= */
-/* 2. MEDIA QUERY UNTUK MOBILE (HITAM & UKURAN KECIL) */
-/* ================================================= */
+/* AGAR KONTEN TIDAK TERUTUP NAVBAR */
+body {
+    padding-top: 80px; /* ruang untuk navbar di desktop */
+}
+
+/* NAVBAR RESPONSIVE & PERBAIKAN HP */
 @media (max-width: 768px) {
-    
-    /* Tampilkan Tombol Tiga Titik */
-    .hamburger-menu {
-        display: block; 
-        color: #ffffff; /* Warna tombol Putih agar terlihat di latar belakang hitam */
-        font-size: 1.8rem; /* Ukuran tetap kecil */
-        z-index: 1001; 
-        line-height: 1; 
-        padding: 0;
+    body {
+        padding-top: 110px; /* navbar lebih tinggi di HP */
     }
 
-    /* Gaya Menu Navigasi di Mobile (Sidebar) */
-    nav .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 70%; 
-        height: 100%;
-        background-color: #1a1a1a; /* Latar Belakang menu sedikit lebih terang dari navbar utama */
-        flex-direction: column; 
-        padding-top: 80px; 
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.7);
-        
-        transform: translateX(100%); 
-        transition: transform 0.3s ease-in-out;
-        z-index: 1000;
+    nav ul {
+        position: absolute;
+        top: 70px;
+        right: 10%;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        padding: 20px;
+        border-radius: 12px;
+        display: none;
     }
 
-    /* Gaya Setiap Item Menu */
-    nav .nav-links li {
-        text-align: left;
-        margin: 0;
-        border-bottom: 1px solid #333333; /* Garis pemisah abu-abu gelap */
+    nav ul.show {
+        display: flex;
     }
 
-    nav .nav-links li a {
-        padding: 15px 20px;
-        color: #ffffff; /* Teks putih di sidebar gelap */
-    }
-    
-    /* Kelas untuk Menampilkan Menu (diaktifkan oleh JS) */
-    nav .nav-links.active {
-        transform: translateX(0); 
-    }
-}* ================================================= */
-/* 1. GAYA DASAR NAVBAR (DESKTOP - TEMA GELAP) */
-/* ================================================= */
-nav {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 10px 5%; 
-    background-color: #000000; /* WARNA BARU: Hitam Penuh */
-    color: #ffffff; /* Teks Putih */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
-}
-
-nav .logo {
-    font-size: 1.5rem;
-    color: #ffffff; /* Logo Putih */
-}
-
-/* Di Desktop, menu harus ditampilkan horizontal */
-nav ul {
-    list-style: none;
-    display: flex; 
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a {
-    color: #ffffff; /* Link teks Putih */
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-     color: #adb5bd; /* Aksen Abu-abu Pucat saat di-hover */
-}
-
-/* Sembunyikan tombol hamburger di Desktop */
-.hamburger-menu {
-    display: none; 
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-
-/* ================================================= */
-/* 2. MEDIA QUERY UNTUK MOBILE (HITAM & UKURAN KECIL) */
-/* ================================================= */
-@media (max-width: 768px) {
-    
-    /* Tampilkan Tombol Tiga Titik */
-    .hamburger-menu {
-        display: block; 
-        color: #ffffff; /* Warna tombol Putih agar terlihat di latar belakang hitam */
-        font-size: 1.8rem; /* Ukuran tetap kecil */
-        z-index: 1001; 
-        line-height: 1; 
-        padding: 0;
-    }
-
-    /* Gaya Menu Navigasi di Mobile (Sidebar) */
-    nav .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 70%; 
-        height: 100%;
-        background-color: #1a1a1a; /* Latar Belakang menu sedikit lebih terang dari navbar utama */
-        flex-direction: column; 
-        padding-top: 80px; 
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.7);
-        
-        transform: translateX(100%); 
-        transition: transform 0.3s ease-in-out;
-        z-index: 1000;
-    }
-
-    /* Gaya Setiap Item Menu */
-    nav .nav-links li {
-        text-align: left;
-        margin: 0;
-        border-bottom: 1px solid #333333; /* Garis pemisah abu-abu gelap */
-    }
-
-    nav .nav-links li a {
-        padding: 15px 20px;
-        color: #ffffff; /* Teks putih di sidebar gelap */
-    }
-    
-    /* Kelas untuk Menampilkan Menu (diaktifkan oleh JS) */
-    nav .nav-links.active {
-        transform: translateX(0); 
+    .menu-toggle {
+        display: block;
     }
 }
+
+header.scrolled{
+    background:rgba(20,20,20,0.95);
+    box-shadow:0 4px 20px rgba(255,215,0,0.2);
+}
+nav{display:flex;justify-content:space-between;align-items:center;}
+nav .logo{font-size:1.6em;font-weight:bold;color:#d4af37;}
+nav ul{display:flex;gap:22px;transition:.3s;}
+nav ul li{list-style:none;}
+nav ul li a{
+    color:#f5deb3;text-decoration:none;font-weight:500;transition:.3s;
+}
+nav ul li a.active,
+nav ul li a:hover{
+    color:#ffd700;text-shadow:0 0 10px #f1c232;
+}
+
 /* Mobile menu toggle */
 .menu-toggle{
     display:none;
